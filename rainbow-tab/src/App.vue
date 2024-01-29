@@ -3,8 +3,10 @@
 </script>
 
 <template>
-Vite-Vue-CRX
+    Vite-Vue-CRX
+    <div>
+        <el-button type="primary">Primary</el-button>
+    </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
