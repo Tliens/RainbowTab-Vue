@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { apiReqs } from '@/api'
 
 const account = ref('')
 const password = ref('')
@@ -10,7 +11,21 @@ const router = useRouter()
 
 // 登录
 const onLogin = () => {
-  router.push('/home')
+  apiReqs.signIn({
+          // 如果上传文件，则设置formData为true，这里暂时不用。
+          // formData: true,
+          data: {
+              account,
+              password,
+          },
+          success: (res) => {
+              console.log(res)
+              router.push('/home')
+          },
+          fail: (res) => {
+              alert(res)
+          },
+      })
 }
 </script>
 
